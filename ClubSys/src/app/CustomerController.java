@@ -1,15 +1,15 @@
 package app;
 
 import gui.CustomerListGui;
-import gui.KundeOversigtGui;
-import gui.RedigerKundeGui;
+import gui.CustomerDetailGuiGui;
+import gui.EditCustomerGui;
 
 public class CustomerController
 {
 
-	private RedigerKundeGui redigerGui; 
+	private EditCustomerGui redigerGui; 
 	private CustomerListGui listeGui;
-	private KundeOversigtGui oversigtGui;
+	private CustomerDetailGuiGui oversigtGui;
 	
 	public void newRedigerGui()
 	{
