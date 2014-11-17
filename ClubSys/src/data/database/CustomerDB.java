@@ -41,7 +41,9 @@ public class CustomerDB
 				int phone = result.getInt("telefon");
 				String password = result.getString("password");
 				
-				customerList.add(new Customer(name, CVR, address, email, phone, password));
+//				String encPassword = Encrypter.decrypt(password);
+				customerList.add(new Customer(id,name, CVR, address, email, phone, password));
+				
 			}
 			
 		} 
@@ -60,13 +62,14 @@ public class CustomerDB
 		
 		try 
 		{
-			preparedStatement = DBConnector.getConnection().prepareStatement("INSERT INTO kunder VALUES(default, ?, ?, ?, ?, ?, ?)");
-			preparedStatement.setString(1,customer.getName());
-			preparedStatement.setInt(2,customer.getCVR());
-			preparedStatement.setString(3,customer.getAddress());
-			preparedStatement.setString(4,customer.getEmail());
-			preparedStatement.setInt(5,customer.getPhone());
-			preparedStatement.setString(6,customer.getPassword());
+			preparedStatement = DBConnector.getConnection().prepareStatement("INSERT INTO kunder VALUES(?, ?, ?, ?, ?, ?, ?)");
+			preparedStatement.setInt(1, customer.getId());
+			preparedStatement.setString(2,customer.getName());
+			preparedStatement.setInt(3,customer.getCVR());
+			preparedStatement.setString(4,customer.getAddress());
+			preparedStatement.setString(5,customer.getEmail());
+			preparedStatement.setInt(6,customer.getPhone());
+			preparedStatement.setString(7,customer.getPassword());
 			
 			preparedStatement.executeUpdate();
 			
@@ -77,8 +80,46 @@ public class CustomerDB
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
-		
+	}
+	public void update(Customer customer)
+	{
+		DBConnector.connect();
+		try 
+		{
+			System.out.println("updating " + customer.getName() +", with id " + customer.getId());
+			preparedStatement = DBConnector.getConnection().prepareStatement("UPDATE kunder SET "
+					+ "firmaNavn = ?, CVR = ?, adresse = ?, email = ?, telefon = ?, password = ?"
+					+ "WHERE kundeID = " + customer.getId());
+			preparedStatement.setString(1, customer.getName());
+			preparedStatement.setInt(2, customer.getCVR());
+			preparedStatement.setString(3, customer.getAddress());
+			preparedStatement.setString(4,customer.getEmail());
+			preparedStatement.setInt(5, customer.getPhone());
+			preparedStatement.setString(6,customer.getPassword());
+			
+			preparedStatement.executeUpdate();
+			
+			DBConnector.disconnect();
+			
+		} 
+		catch (SQLException e) 
+		{
+			e.printStackTrace();
+		}
+	}
+	
+	public void delete(Customer customer)
+	{
+		DBConnector.connect();
+		try {
+			preparedStatement = DBConnector.getConnection().prepareStatement("DELETE FROM kunder WHERE kundeID = " + customer.getId());
+			preparedStatement.executeUpdate();
+			
+			DBConnector.disconnect();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		};
 	}
 }

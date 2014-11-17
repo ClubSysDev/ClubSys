@@ -21,7 +21,11 @@ public class CustomerList {
 	
 	public void addCustomer(Customer customer)
 	{
-		//			customer.setPassword(Encrypter.encrypt(customer.getPassword()));
 		customerDB.addCustomer(customer);
+	}
+	
+	public void updateCustomer(Customer customer)
+	{
+		customerDB.update(customer);
 	}
 }

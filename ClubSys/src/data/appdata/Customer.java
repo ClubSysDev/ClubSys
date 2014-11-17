@@ -6,7 +6,7 @@ import app.Encrypter;
 
 public class Customer 
 {
-
+	private int id;
 	private String name;
 	private int CVR;
 	private String Address;
@@ -15,22 +15,25 @@ public class Customer
 	private String password;
 
 
-	public Customer(String name, int CVR, String address, String email, int phone, String password) 
+	public Customer(int id, String name, int CVR, String address, String email, int phone, String password) 
 	{
+		this.id = id;
 		this.name = name;
 		this.CVR = CVR;
 		this.Address = address;
 		this.email = email;
 		this.phone = phone;
-		try
-		{
-			this.password = Encrypter.encrypt(password);
-		} catch (UnsupportedEncodingException | IllegalBlockSizeException | BadPaddingException e)
-		{
-			e.printStackTrace();
-		}
+		this.password = password;
 	}
 	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public Customer()
 	{
 		

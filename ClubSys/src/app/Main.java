@@ -12,12 +12,14 @@ public class Main {
 	public static void main(String[] args) {
 		CustomerDB customerDB = new CustomerDB();
 		
+//		customerDB.addCustomer(new Customer(1,"Navn",1234,"Adresse","mail",12345678,"password"));
+		
+		
 		List<Customer> list = customerList.getCustomers();
 		
-		for(Customer c : list)
-		{
-			System.out.println(c.getName() + ", " + c.getPassword());
-		}
+		Customer customer = list.get(0);
+	
+		System.out.println(customer.getPassword());
 		
 	}
 
