@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="ClubSys/src"/>
+	<classpathentry kind="lib" path="ClubSys/libs/mysql-connector-java-5.1.31-bin.jar"/>
+	<classpathentry kind="lib" path="ClubSys/libs/joda-time-2.4.jar"/>
+	<classpathentry kind="lib" path="ClubSys/libs/jpedal_lgpl.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="ClubSys/bin"/>
+</classpath>

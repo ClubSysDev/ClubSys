@@ -2,7 +2,6 @@ package data.appdata;
 import java.io.UnsupportedEncodingException;
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
-
 import app.Encrypter;
 
 public class Customer 
