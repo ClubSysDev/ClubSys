@@ -10,9 +10,9 @@ public class DBConnector {
 	 */
 
 	private static Connection conn = null;
-	private static String dbURL = "localhost";
-	private static String dbUser = "";
-	private static String dbPass = ""; // De her ting skal måske ligge i en klasse.
+	private static String dbURL = "jdbc:mysql://localhost/clubmate";
+	private static String dbUser = "root";
+	private static String dbPass = "Kvuc90025"; // De her ting skal måske ligge i en klasse.
 
 	public static void connect()
 	{
