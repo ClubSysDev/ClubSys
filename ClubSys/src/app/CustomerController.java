@@ -1,7 +1,7 @@
 package app;
 
 import gui.CustomerListGui;
-import gui.CustomerDetailGuiGui;
+import gui.CustomerDetailGui;
 import gui.EditCustomerGui;
 
 public class CustomerController
@@ -9,7 +9,7 @@ public class CustomerController
 
 	private EditCustomerGui redigerGui; 
 	private CustomerListGui listeGui;
-	private CustomerDetailGuiGui oversigtGui;
+	private CustomerDetailGui oversigtGui;
 	
 	public void newRedigerGui()
 	{
