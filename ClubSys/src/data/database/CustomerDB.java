@@ -8,6 +8,6 @@ public class CustomerDB
 
 	public List<Customer> getCustomer(List list)
 	{
-		
+		DBConnector.connect();
 	}
 }
