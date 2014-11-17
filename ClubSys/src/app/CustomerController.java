@@ -13,7 +13,7 @@ public class CustomerController
 	
 	public void newRedigerGui()
 	{
-		
+			
 	}
 	
 }
