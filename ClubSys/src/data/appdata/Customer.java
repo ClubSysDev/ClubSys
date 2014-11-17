@@ -1,4 +1,9 @@
 package data.appdata;
+import java.io.UnsupportedEncodingException;
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+
+import app.Encrypter;
 
 public class Customer 
 {
@@ -11,17 +16,23 @@ public class Customer
 	private String password;
 
 
-	public void Customer(String name, int CVR, String address, String email, int phone, String password) 
+	public Customer(String name, int CVR, String address, String email, int phone, String password) 
 	{
 		this.name = name;
 		this.CVR = CVR;
 		this.Address = address;
 		this.email = email;
 		this.phone = phone;
-		this.password = Encrypter.encrypt(password);
+		try
+		{
+			this.password = Encrypter.encrypt(password);
+		} catch (UnsupportedEncodingException | IllegalBlockSizeException | BadPaddingException e)
+		{
+			e.printStackTrace();
+		}
 	}
 	
-	public void Customer()
+	public Customer()
 	{
 		
 	}
@@ -83,7 +94,16 @@ public class Customer
 
 	public void setPassword(String password)
 	{
-		this.password = Encrypter.encrypt(password);
+		try
+		{
+			this.password = Encrypter.encrypt(password);
+		} 
+		catch (UnsupportedEncodingException | IllegalBlockSizeException | BadPaddingException e)
+		{
+			e.printStackTrace();
+		} 
+		
+
 	}
 
 }
