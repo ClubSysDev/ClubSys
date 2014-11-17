@@ -20,7 +20,8 @@ public class Encrypter
 	private static Cipher ecipher;
 	private static Cipher dcipher;
 	
-	static{
+	static
+	{
 		try 
 		{
 			key = KeyGenerator.getInstance("AES").generateKey();
